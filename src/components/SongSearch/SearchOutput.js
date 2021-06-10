@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button, Table, Card } from "react-bootstrap";
-import classes from "./SearchOutput.module.css"
+import Button from "../UI/Button";
+import { Table, Card } from "react-bootstrap";
+import classes from "./SearchOutput.module.css";
 
 //AIzaSyAonBgL_dJteImasf4i_-7Hb5aU2Rd8x5E
 
@@ -24,8 +25,8 @@ const SearchOutput = () => {
       <Button type='button' onClick={fetchSongsHandler}>
         Fetch all songs
       </Button>
-      
-      <Table striped bordered hover className = {classes.show} >
+
+      <Table striped bordered hover className={classes.show}>
         <thead>
           <tr>
             <th>#</th>
@@ -44,7 +45,12 @@ const SearchOutput = () => {
               <td>{data.songName}</td>
               <td>{data.artistName}</td>
               <td>
-                <a href={data.youtubeLink}>{data.youtubeLink}</a>
+                <a
+                  style={{ color: "#17e9e0", textTransform: "lowercase" }}
+                  href={data.youtubeLink}
+                >
+                  {data.youtubeLink}
+                </a>
               </td>
               <td>{data.name}</td>
               <td>{data.tag1}</td>
@@ -53,23 +59,23 @@ const SearchOutput = () => {
           ))}
         </tbody>
       </Table>
-      <div className = {classes.hide}>
-      {songsList.map((data) => (
-        <Card style={{ width: "18rem" }}>
-          <Card.Body>
-            <Card.Title>{data.songName}</Card.Title>
-            <Card.Subtitle className='mb-2 text-muted'>
-              {data.artistName}
-            </Card.Subtitle>
-            <Card.Text>{data.tag1}</Card.Text>
-            <Card.Text>{data.tag2}</Card.Text>
-            <Card.Link href={data.youtubeLink}>Play on Youtube</Card.Link>
-          </Card.Body>
-          <footer className='blockquote-footer'>
-          {data.name}
-          </footer>
-        </Card>
-      ))}
+      <div className={classes.hide}>
+        {songsList.map((data) => (
+          <Card className={classes.cards}>
+            <Card.Body>
+              <Card.Title className={classes.cardTitle}>
+                {data.songName}
+              </Card.Title>
+              <Card.Subtitle className='mb-2 text-muted'>
+                {data.artistName}
+              </Card.Subtitle>
+              <Card.Text>{data.tag1}</Card.Text>
+              <Card.Text>{data.tag2}</Card.Text>
+              <Card.Link href={data.youtubeLink}>Play on Youtube</Card.Link>
+            </Card.Body>
+            <footer className='blockquote-footer'>{data.name}</footer>
+          </Card>
+        ))}
       </div>
     </>
   );

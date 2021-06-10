@@ -1,35 +1,67 @@
-label {
-  margin: 5px;
-  font-weight: 500;
-  margin-right: 5px;
+.addsongform {
+  margin: 1rem 0;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
 }
-input {
-  margin: 5px;
-  width: 15rem;
+.addsongform label,
+.addsongform input {
+  display: block;
+}
+
+.addsongform label {
+  flex: 1;
+  font-weight: 600;
+  font-size: large;
+  color: #f1decc;
+  font-family: Avenir Next Condensed;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+}
+.addsongform input {
+  flex: 3;
   border-radius: 5px;
-  border: 1px solid #ccc;
-  font: inherit;
-  padding-left: 0.5rem;
+  border: 1px solid #f1decc;
+  font-family: Avenir Next Condensed;
+  letter-spacing: 2px;
+  padding: 0.35rem 0.35rem;
+  margin-bottom: 1rem;
+}
+
+.addsongform input:focus {
+  outline: none;
+  border-color: #4f005f;
+  background: #f6dbfc;
 }
 
 div {
   margin: 5px;
 }
 
-form {
+.addsongform form {
   margin: auto;
   text-align: center;
 }
 
 @media (min-width: 500px) {
   .card {
+    flex-direction: row;
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
     border-radius: 14px;
-    background-color: white;
-    max-width: 50%;
+    background-color: #f1decc;
+    width: 70%;
+    max-width: 40rem;
     margin: auto;
     font-size: large;
     align-items: center;
+  }
+  .card label {
+    flex: 1;
+    color: #a64ac9;
+  }
+  .card input {
+    flex: 3;
+    margin-bottom: 1rem;
   }
 }

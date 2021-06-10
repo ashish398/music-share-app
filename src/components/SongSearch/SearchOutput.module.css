@@ -1,11 +1,48 @@
+h3 {
+  font-family: Avenir Next Condensed;
+  letter-spacing: 1px;
+  color: #f1decc;
+}
 .show {
   display: none;
   visibility: hidden;
   margin-top: 2rem;
 }
-.hide{
-    margin-top: 2rem;
+
+.show thead {
+  font-family: Avenir Next Condensed;
+  letter-spacing: 1px;
+  color: #f1decc;
 }
+
+.show tbody {
+  font-family: Avenir Next Condensed;
+  text-transform: capitalize;
+  font-weight: 400;
+}
+
+.hide {
+  margin-top: 2rem;
+}
+
+.cards {
+  padding: 1rem !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) !important;
+  border-radius: 14px !important;
+  background-color: #f1decc !important;
+  font-size: large !important;
+  align-items: center !important;
+  font-family: Avenir Next Condensed;
+  letter-spacing: 1.5px;
+}
+
+.cardTitle {
+  color: #a64ac9;
+  font-size: x-large;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 @media screen and (min-width: 500px) {
   .show {
     display: block;

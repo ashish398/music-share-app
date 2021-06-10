@@ -2,44 +2,46 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import { Navbar, Nav } from "react-bootstrap";
-import Pockets from "../../assets/Pockets_main_font.png";
 import banner from "../../assets/homescreen_banner.png";
+import Pockets from "../../assets/Pockets_main_font.png";
+import HamBurgIcon from "../UI/HamBurgIcon";
 
 const Header = () => {
+  //<Nav.Link as={NavLink} to='/' exact>Home</Nav.Link>
   return (
     <>
-      <Navbar expand='lg' className={classes.header}>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+      <Navbar className={classes.navbar} expand='lg'>
+        <Navbar.Brand>
+          <img src={Pockets} alt='pockets' />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav'>
+          <HamBurgIcon />
+        </Navbar.Toggle>
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav>
             <Nav.Link
+              className={classes.addSong}
+              activeStyle={{ textDecoration: "underline" }}
               as={NavLink}
               to='/'
-              activeClassName={classes.activelink}
               exact
-              className={classes.navlink}
             >
-              HOME
+              ADD SONG
             </Nav.Link>
             <Nav.Link
+              className={classes.searchSong}
+              activeStyle={{ textDecoration: "underline" }}
               as={NavLink}
               to='/search'
-              className={classes.navlink}
-              activeClassName={classes.activelink}
               exact
             >
-              SEARCH
+              SEARCH SONG
             </Nav.Link>
-            <Navbar.Brand>
-              <span className={classes.pockets}>
-                <p>Pockets</p>{" "}
-              </span>
-            </Navbar.Brand>
             <Nav.Link
+              className={classes.about}
+              activeStyle={{ textDecoration: "underline" }}
               as={NavLink}
               to='/about'
-              className={classes.navlink}
-              activeClassName={classes.activelink}
               exact
             >
               ABOUT

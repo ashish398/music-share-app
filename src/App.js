@@ -7,7 +7,7 @@ import classes from "./App.module.css";
 
 const App = () => {
   return (
-    <>
+    <div className={classes.App}>
       <Header />
       <div className={classes.main}>
         <Switch>
@@ -25,7 +25,7 @@ const App = () => {
           </Route>
         </Switch>
       </div>
-    </>
+    </div>
   );
 };
 export default App;

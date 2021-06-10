@@ -1,13 +1,13 @@
 import React from "react";
 import classes from "./SongsForm.module.css";
-import { Button, Form } from "react-bootstrap";
+import Button from "../UI/Button";
+import { Form } from "react-bootstrap";
 import useInput from "../../hooks/use-input";
 
 //Total inputs = 6
 
 const isNotEmpty = (value) => value.trim() !== "";
 const noCheck = (value) => true;
-
 
 const SongsForm = (props) => {
   const {
@@ -80,10 +80,10 @@ const SongsForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    inputSongBlurHandler()
-    inputLinkBlurHandler()
-    inputNameBlurHandler()
-    inputTag1BlurHandler()
+    inputSongBlurHandler();
+    inputLinkBlurHandler();
+    inputNameBlurHandler();
+    inputTag1BlurHandler();
     const songData = {
       songName: inputSong,
       artistName: inputArtist,
@@ -107,76 +107,69 @@ const SongsForm = (props) => {
 
   return (
     <div className={classes.card}>
-      <Form onSubmit={submitHandler}>
-        <div className={classes.nothing}>
-          <label htmlFor='inputSong'>Song Name:</label>
-          <input
-            id='inputSong'
-            onChange={inputSongChangeHandler}
-            value={inputSong}
-            onBlur={inputSongBlurHandler}
-            type='text'
-          />
-          {inputSongHasError && <p>Enter a valid song name</p>}
+      <Form onSubmit={submitHandler} className={classes.addsongform}>
+        <label htmlFor='inputSong'>Song Name</label>
+        <input
+          id='inputSong'
+          onChange={inputSongChangeHandler}
+          value={inputSong}
+          onBlur={inputSongBlurHandler}
+          type='text'
+        />
+        {inputSongHasError && <p>Enter a valid song name</p>}
+        <label htmlFor='inputArtist'>Artist Name</label>
+        <input
+          id='inputArtist'
+          onChange={inputArtistChangeHandler}
+          value={inputArtist}
+          onBlur={inputArtistBlurHandler}
+          type='text'
+        />
+        {inputArtistHasError && <p>Enter a valid artist name</p>}
 
-          <label htmlFor='inputArtist'>Artist Name:</label>
-          <input
-            id='inputArtist'
-            onChange={inputArtistChangeHandler}
-            value={inputArtist}
-            onBlur={inputArtistBlurHandler}
-            type='text'
-          />
-          {inputArtistHasError && <p>Enter a valid artist name</p>}
-        </div>
+        <label htmlFor='inputLink'>Youtube Link</label>
+        <input
+          id='inputLink'
+          onChange={inputLinkChangeHandler}
+          value={inputLink}
+          onBlur={inputLinkBlurHandler}
+          type='url'
+        />
+        {inputLinkHasError && <p>Enter a valid Link</p>}
+        <label htmlFor='inputName'>Your Name</label>
+        <input
+          id='inputName'
+          onChange={inputNameChangeHandler}
+          value={inputName}
+          onBlur={inputNameBlurHandler}
+          type='text'
+        />
+        {inputNameHasError && <p>Enter a valid Name</p>}
 
-        <div>
-          <label htmlFor='inputLink'>Youtube Link:</label>
-          <input
-            id='inputLink'
-            onChange={inputLinkChangeHandler}
-            value={inputLink}
-            onBlur={inputLinkBlurHandler}
-            type='url'
-          />
-          {inputLinkHasError && <p>Enter a valid Link</p>}
+        <label htmlFor='inputTag1'>Tag1</label>
+        <input
+          id='inputTag1'
+          onChange={inputTag1ChangeHandler}
+          value={inputTag1}
+          onBlur={inputTag1BlurHandler}
+          placeholder='Eg: language/mood/genre'
+          type='text'
+        />
+        {inputTag1HasError && <p>Enter a valid Tag</p>}
+        <label htmlFor='inputTag2'>Tag2</label>
+        <input
+          id='inputTag2'
+          onChange={inputTag2ChangeHandler}
+          value={inputTag2}
+          onBlur={inputTag2BlurHandler}
+          placeholder='Eg: language/mood/genre'
+          type='text'
+        />
+        {inputTag2HasError && <p>Enter a valid Tag</p>}
 
-          <label htmlFor='inputName'>Your Name:</label>
-          <input
-            id='inputName'
-            onChange={inputNameChangeHandler}
-            value={inputName}
-            onBlur={inputNameBlurHandler}
-            type='text'
-          />
-          {inputNameHasError && <p>Enter a valid Name</p>}
-        </div>
-
-        <div>
-          <label htmlFor='inputTag1'>Tag1:</label>
-          <input
-            id='inputTag1'
-            onChange={inputTag1ChangeHandler}
-            value={inputTag1}
-            onBlur={inputTag1BlurHandler}
-            placeholder='Eg: language/mood/genre'
-            type='text'
-          />
-          {inputTag1HasError && <p>Enter a valid Tag</p>}
-
-          <label htmlFor='inputTag2'>Tag2:</label>
-          <input
-            id='inputTag2'
-            onChange={inputTag2ChangeHandler}
-            value={inputTag2}
-            onBlur={inputTag2BlurHandler}
-            placeholder='Eg: language/mood/genre'
-            type='text'
-          />
-          {inputTag2HasError && <p>Enter a valid Tag</p>}
-        </div>
-
-        <Button type='submit'>Add the Song</Button>
+        <Button type='submit' classname={classes.custombutton}>
+          Add the Song
+        </Button>
       </Form>
     </div>
   );
