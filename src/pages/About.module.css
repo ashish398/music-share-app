@@ -1,8 +1,18 @@
 .about {
-    padding-left: 25pt;
-    padding-right: 24pt;
+  padding-left: 50pt;
+  padding-right: 50pt;
+  font-family: Avenir Next Condensed;
+  font-weight: 500;
+  color: #f1decc;
+  background-color: #a64ac9;
+}
+
+@media (min-width: 500px) {
+  .about {
+    padding-left: 15rem;
+    padding-right: 15rem;
     font-family: Avenir Next Condensed;
     font-weight: 500;
     color: #f1decc;
   }
-  
+}

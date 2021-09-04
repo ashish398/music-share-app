@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Button from "../UI/Button";
 import { Table, Card } from "react-bootstrap";
 import classes from "./SearchOutput.module.css";
@@ -7,7 +7,8 @@ import classes from "./SearchOutput.module.css";
 
 const SearchOutput = () => {
   const [songsList, setSongsList] = useState([]);
-  const fetchSongsHandler = async () => {
+
+  const fetchSongsHandler = useCallback(async () => {
     const response = await fetch(
       "https://song-app-dae54-default-rtdb.asia-southeast1.firebasedatabase.app/songs.json"
     );
@@ -17,15 +18,14 @@ const SearchOutput = () => {
       loadedSongs.push(songsData[key]);
     }
     setSongsList(loadedSongs);
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchSongsHandler();
+  }, [fetchSongsHandler]);
 
   return (
     <>
-      <h3>Click on "Fetch all songs" to get all the shared songs. </h3>
-      <Button type='button' onClick={fetchSongsHandler}>
-        Fetch all songs
-      </Button>
-
       <Table striped bordered hover className={classes.show}>
         <thead>
           <tr>
@@ -66,14 +66,14 @@ const SearchOutput = () => {
               <Card.Title className={classes.cardTitle}>
                 {data.songName}
               </Card.Title>
-              <Card.Subtitle className='mb-2 text-muted'>
+              <Card.Subtitle className="mb-2 text-muted">
                 {data.artistName}
               </Card.Subtitle>
               <Card.Text>{data.tag1}</Card.Text>
               <Card.Text>{data.tag2}</Card.Text>
               <Card.Link href={data.youtubeLink}>Play on Youtube</Card.Link>
             </Card.Body>
-            <footer className='blockquote-footer'>{data.name}</footer>
+            <footer className="blockquote-footer">{data.name}</footer>
           </Card>
         ))}
       </div>
