@@ -7,6 +7,7 @@ import classes from "./SearchOutput.module.css";
 
 const SearchOutput = () => {
   const [songsList, setSongsList] = useState([]);
+  const [reversed, setReversed] = useState(false);
 
   const fetchSongsHandler = useCallback(async () => {
     const response = await fetch(
@@ -24,8 +25,21 @@ const SearchOutput = () => {
     fetchSongsHandler();
   }, [fetchSongsHandler]);
 
+
+  const reverseHandler=() => {
+    let reverseList = [];
+    setReversed(!reversed);
+    for (const key in songsList){
+        reverseList=[songsList[key],...reverseList]
+    }
+    setSongsList(reverseList);
+  }
+
   return (
     <>
+      <Button onClick={reverseHandler}>
+         {reversed?'Sort by latest-to-oldest':'Sort by oldest-to-latest'}
+      </Button>
       <Table striped bordered hover className={classes.show}>
         <thead>
           <tr>
