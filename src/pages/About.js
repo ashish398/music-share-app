@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../components/UI/Card";
 import { Jumbotron } from "react-bootstrap";
 import classes from "./About.module.css";
 
@@ -7,7 +8,7 @@ const About = () => {
     <>
       <Jumbotron className={classes.about}>
         <h2>About Pockets</h2>
-        <h6>Pockets is a collaborative Songs Search website.</h6>
+        <h4>Pockets is a collaborative Songs Search website.</h4>
         <p>
           First of all, Congratulations if you see this application, you have
           got great taste in music! This is an application to create our very
