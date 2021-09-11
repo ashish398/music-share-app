@@ -1,17 +1,4 @@
 .about {
-<<<<<<< HEAD
-  padding-left: 25pt;
-  padding-right: 24pt;
-  font-family: Avenir Next Condensed;
-  font-weight: 500;
-  background-color: transparent !important;
-  color: white !important;
-  font-size: larger;
-}
-
-.about h3 {
-  color: white !important;
-=======
   padding-left: 50pt;
   padding-right: 50pt;
   font-family: Avenir Next Condensed;
@@ -28,5 +15,4 @@
     font-weight: 500;
     color: #f1decc;
   }
->>>>>>> 36f6139f9c3d197c69fd28693176fa5137f0026d
 }
