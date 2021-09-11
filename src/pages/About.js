@@ -5,7 +5,7 @@ import classes from "./About.module.css";
 
 const About = () => {
   return (
-    <>
+    <div>
       <Jumbotron className={classes.about}>
         <h2>About Pockets</h2>
         <h4>Pockets is a collaborative Songs Search website.</h4>
@@ -35,7 +35,7 @@ const About = () => {
           Made with <span>&#128156;</span> by Ashish Jain
         </p>
       </Jumbotron>
-    </>
+    </div>
   );
 };
 
