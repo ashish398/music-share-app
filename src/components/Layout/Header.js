@@ -12,7 +12,9 @@ const Header = () => {
     <>
       <Navbar className={classes.navbar} expand='lg'>
         <Navbar.Brand>
+        <Nav.Link as={NavLink} to='/' exact>
           <img src={Pockets} alt='pockets' />
+         </Nav.Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls='basic-navbar-nav'>
           <HamBurgIcon />

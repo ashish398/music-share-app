@@ -38,7 +38,7 @@ const SearchOutput = () => {
   return (
     <>
       <Button onClick={reverseHandler}>
-         {reversed?'Sort by latest-to-oldest':'Sort by oldest-to-latest'}
+         {reversed?'Sort by oldest-to-latest':'Sort by latest-to-oldest'}
       </Button>
       <Table striped bordered hover className={classes.show}>
         <thead>
