@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import { Navbar, Nav } from "react-bootstrap";
@@ -7,25 +7,32 @@ import Pockets from "../../assets/Pockets_main_font.png";
 import HamBurgIcon from "../UI/HamBurgIcon";
 
 const Header = () => {
-  //<Nav.Link as={NavLink} to='/' exact>Home</Nav.Link>
+  const [expanded, setExpanded] = useState(false);
+  const toggleHandler = () => {
+    setExpanded(expanded ? false : true);
+  };
+
+  const onLinkClickHandler = () => {
+    setExpanded(false);
+  };
+
   return (
     <>
-      <Navbar className={classes.navbar} expand='lg'>
+      <Navbar className={classes.navbar} expand="lg" expanded={expanded}>
         <Navbar.Brand>
-        <Nav.Link as={NavLink} to='/' exact>
-          <img src={Pockets} alt='pockets' />
-         </Nav.Link>
+          <img src={Pockets} alt="pockets" />
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav'>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={toggleHandler}>
           <HamBurgIcon />
         </Navbar.Toggle>
-        <Navbar.Collapse id='basic-navbar-nav'>
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav>
             <Nav.Link
               className={classes.addSong}
               activeStyle={{ textDecoration: "underline" }}
+              onClick={onLinkClickHandler}
               as={NavLink}
-              to='/'
+              to="/"
               exact
             >
               ADD SONG
@@ -33,8 +40,9 @@ const Header = () => {
             <Nav.Link
               className={classes.searchSong}
               activeStyle={{ textDecoration: "underline" }}
+              onClick={onLinkClickHandler}
               as={NavLink}
-              to='/search'
+              to="/search"
               exact
             >
               SEARCH SONG
@@ -42,8 +50,9 @@ const Header = () => {
             <Nav.Link
               className={classes.about}
               activeStyle={{ textDecoration: "underline" }}
+              onClick={onLinkClickHandler}
               as={NavLink}
-              to='/about'
+              to="/about"
               exact
             >
               ABOUT
@@ -52,7 +61,7 @@ const Header = () => {
         </Navbar.Collapse>
       </Navbar>
       <div className={classes["main-image"]}>
-        <img src={banner} alt='banner' />
+        <img src={banner} alt="banner" />
       </div>
     </>
   );

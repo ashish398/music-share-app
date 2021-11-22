@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "../components/UI/Card";
 import { Jumbotron } from "react-bootstrap";
 import classes from "./About.module.css";
 
