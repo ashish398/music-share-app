@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Jumbotron } from "react-bootstrap";
 import classes from "./About.module.css";
+import { logScreen } from "../firebaseLogger";
 
 const About = () => {
+  useEffect(() => {
+    logScreen("about");
+  });
   return (
     <div>
-      <Jumbotron style={{background:'#a64ac9' }} className={classes.about}>
+      <Jumbotron style={{ background: "#a64ac9" }} className={classes.about}>
         <h2>About Pockets</h2>
         <h4>Pockets is a collaborative Songs Search website.</h4>
         <p>

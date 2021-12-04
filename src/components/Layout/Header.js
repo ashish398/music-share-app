@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
 import { Navbar, Nav } from "react-bootstrap";
-import banner from "../../assets/homescreen_banner.png";
-import Pockets from "../../assets/Pockets_main_font.png";
+import banner from "../../assets/images/homescreen_banner.png";
+import Pockets from "../../assets/images/Pockets_main_font.png";
 import HamBurgIcon from "../UI/HamBurgIcon";
 
 const Header = () => {

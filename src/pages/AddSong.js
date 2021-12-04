@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import SongsForm from "../components/NewSong/SongsForm";
+import { logScreen } from "../firebaseLogger";
 
 const AddSong = () => {
   const addSongHandler = async (songData) => {
@@ -14,6 +15,9 @@ const AddSong = () => {
     const data = await response.json();
     console.log(data);
   };
+  useEffect(() => {
+    logScreen("add_song");
+  });
   return (
     <div>
       <SongsForm addSong={addSongHandler} />
