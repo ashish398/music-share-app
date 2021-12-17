@@ -25,20 +25,19 @@ const SearchOutput = () => {
     fetchSongsHandler();
   }, [fetchSongsHandler]);
 
-
-  const reverseHandler=() => {
+  const reverseHandler = () => {
     let reverseList = [];
     setReversed(!reversed);
-    for (const key in songsList){
-        reverseList=[songsList[key],...reverseList]
+    for (const key in songsList) {
+      reverseList = [songsList[key], ...reverseList];
     }
     setSongsList(reverseList);
-  }
+  };
 
   return (
     <>
       <Button onClick={reverseHandler}>
-         {reversed?'Sort by oldest-to-latest':'Sort by latest-to-oldest'}
+        {reversed ? "Sort by oldest-to-latest" : "Sort by latest-to-oldest"}
       </Button>
       <Table striped bordered hover className={classes.show}>
         <thead>
@@ -55,9 +54,9 @@ const SearchOutput = () => {
         <tbody>
           {songsList.map((data, index) => (
             <tr key={data.youtubeLink}>
-              <td>{index + 1}</td>
-              <td>{data.songName}</td>
-              <td>{data.artistName}</td>
+              <td style={{ color: "white" }}>{index + 1}</td>
+              <td style={{ color: "#17e9e0" }}>{data.songName}</td>
+              <td style={{ color: "#f8d60e" }}>{data.artistName}</td>
               <td>
                 <a
                   style={{ color: "#17e9e0", textTransform: "lowercase" }}
@@ -66,9 +65,9 @@ const SearchOutput = () => {
                   {data.youtubeLink}
                 </a>
               </td>
-              <td>{data.name}</td>
-              <td>{data.tag1}</td>
-              <td>{data.tag2}</td>
+              <td style={{ color: "#f8d60e" }}>{data.name}</td>
+              <td style={{ color: "#faaf92" }}>{data.tag1}</td>
+              <td style={{ color: "white" }}>{data.tag2}</td>
             </tr>
           ))}
         </tbody>

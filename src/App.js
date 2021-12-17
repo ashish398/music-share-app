@@ -11,17 +11,20 @@ const App = () => {
       <Header />
       <div className={classes.main}>
         <Switch>
-          <Route path='/' exact>
-            <AddSong />
-          </Route>
-          <Route path='/search' exact>
+          <Route path="/" exact>
             <SearchSong />
           </Route>
-          <Route path='/about' exact>
+          <Route path="/add" exact>
+            <AddSong />
+          </Route>
+          <Route path="/search" exact>
+            <SearchSong />
+          </Route>
+          <Route path="/about" exact>
             <About />
           </Route>
-          <Route path='*'>
-            <Redirect to='/' />
+          <Route path="*">
+            <Redirect to="/" />
           </Route>
         </Switch>
       </div>
