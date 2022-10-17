@@ -4,8 +4,6 @@ import Button from "../UI/Button";
 import { Form } from "react-bootstrap";
 import useInput from "../../hooks/use-input";
 
-//Total inputs = 6
-
 const isNotEmpty = (value) => value.trim() !== "";
 const noCheck = (value) => true;
 
@@ -108,66 +106,78 @@ const SongsForm = (props) => {
   return (
     <div className={classes.card}>
       <Form onSubmit={submitHandler} className={classes.addsongform}>
-        <label htmlFor='inputSong'>Song Name</label>
+        <label htmlFor="inputSong">Song Name</label>
         <input
-          id='inputSong'
+          id="inputSong"
           onChange={inputSongChangeHandler}
           value={inputSong}
           onBlur={inputSongBlurHandler}
-          type='text'
+          type="text"
         />
-        {inputSongHasError && <p>Enter a valid song name</p>}
-        <label htmlFor='inputArtist'>Artist Name</label>
+        {inputSongHasError && (
+          <p style={{ color: "white" }}>Enter a valid song name</p>
+        )}
+        <label htmlFor="inputArtist">Artist Name</label>
         <input
-          id='inputArtist'
+          id="inputArtist"
           onChange={inputArtistChangeHandler}
           value={inputArtist}
           onBlur={inputArtistBlurHandler}
-          type='text'
+          type="text"
         />
-        {inputArtistHasError && <p>Enter a valid artist name</p>}
+        {inputArtistHasError && (
+          <p> style={{ color: "white" }}Enter a valid artist name</p>
+        )}
 
-        <label htmlFor='inputLink'>Youtube Link</label>
+        <label htmlFor="inputLink">Youtube Link</label>
         <input
-          id='inputLink'
+          id="inputLink"
           onChange={inputLinkChangeHandler}
           value={inputLink}
           onBlur={inputLinkBlurHandler}
-          type='url'
+          type="url"
         />
-        {inputLinkHasError && <p>Enter a valid Link</p>}
-        <label htmlFor='inputName'>Your Name</label>
+        {inputLinkHasError && (
+          <p style={{ color: "white" }}>Enter a valid Link</p>
+        )}
+        <label htmlFor="inputName">Your Name</label>
         <input
-          id='inputName'
+          id="inputName"
           onChange={inputNameChangeHandler}
           value={inputName}
           onBlur={inputNameBlurHandler}
-          type='text'
+          type="text"
         />
-        {inputNameHasError && <p>Enter a valid Name</p>}
+        {inputNameHasError && (
+          <p style={{ color: "white" }}>Enter a valid Name</p>
+        )}
 
-        <label htmlFor='inputTag1'>Tag1</label>
+        <label htmlFor="inputTag1">Tag1</label>
         <input
-          id='inputTag1'
+          id="inputTag1"
           onChange={inputTag1ChangeHandler}
           value={inputTag1}
           onBlur={inputTag1BlurHandler}
-          placeholder='Eg: language/mood/genre'
-          type='text'
+          placeholder="Eg: language/mood/genre"
+          type="text"
         />
-        {inputTag1HasError && <p>Enter a valid Tag</p>}
-        <label htmlFor='inputTag2'>Tag2</label>
+        {inputTag1HasError && (
+          <p style={{ color: "white" }}>Enter a valid Tag</p>
+        )}
+        <label htmlFor="inputTag2">Tag2</label>
         <input
-          id='inputTag2'
+          id="inputTag2"
           onChange={inputTag2ChangeHandler}
           value={inputTag2}
           onBlur={inputTag2BlurHandler}
-          placeholder='Eg: language/mood/genre'
-          type='text'
+          placeholder="Eg: language/mood/genre"
+          type="text"
         />
-        {inputTag2HasError && <p>Enter a valid Tag</p>}
+        {inputTag2HasError && (
+          <p style={{ color: "white" }}>Enter a valid Tag</p>
+        )}
 
-        <Button type='submit' classname={classes.custombutton}>
+        <Button type="submit" classname={classes.custombutton}>
           Add the Song
         </Button>
       </Form>

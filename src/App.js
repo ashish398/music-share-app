@@ -13,6 +13,9 @@ const App = () => {
       <div className={classes.main}>
         <Switch>
           <Route path="/" exact>
+            <SearchSong />
+          </Route>
+          <Route path="/add" exact>
             <AddSong />
           </Route>
           <Route path="/search" exact>
