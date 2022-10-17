@@ -1,3 +1,4 @@
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import AddSong from "./pages/AddSong";
@@ -11,17 +12,17 @@ const App = () => {
       <Header />
       <div className={classes.main}>
         <Switch>
-          <Route path='/' exact>
+          <Route path="/" exact>
             <AddSong />
           </Route>
-          <Route path='/search' exact>
+          <Route path="/search" exact>
             <SearchSong />
           </Route>
-          <Route path='/about' exact>
+          <Route path="/about" exact>
             <About />
           </Route>
-          <Route path='*'>
-            <Redirect to='/' />
+          <Route path="*">
+            <Redirect to="/" />
           </Route>
         </Switch>
       </div>
