@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SongsForm from "../components/NewSong/SongsForm";
 import { logScreen } from "../firebaseLogger";
-import React, { useState } from "react";
-import SongsForm from "../components/NewSong/SongsForm";
 import ResponseToast from "../components/UI/ResponseToast";
 
 const AddSong = () => {
