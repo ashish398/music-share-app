@@ -10,6 +10,16 @@ const HeaderLoggedIn = (props) => {
     <>
       <Nav>
         <Nav.Link
+          className={classes.about}
+          activeStyle={{ textDecoration: "underline" }}
+          onClick={onLinkClickHandler}
+          as={NavLink}
+          to="/groups"
+          exact
+        >
+          MY GROUPS
+        </Nav.Link>
+        <Nav.Link
           className={classes.searchSong}
           activeStyle={{ textDecoration: "underline" }}
           onClick={onLinkClickHandler}

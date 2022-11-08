@@ -5,27 +5,28 @@ import SignIn from "./pages/SignIn";
 import SearchSong from "./pages/SearchSong";
 import About from "./pages/About";
 import Protected from "./Protected";
-import GroupJoin from "./pages/GroupJoin";
+import Groups from "./pages/Groups";
+import Group from "./pages/Group";
+import NewGroup from "./pages/NewGroup";
+import Error from "./pages/Error";
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/" exact element={<SignIn />} />
-
       <Route path="/signin" exact element={<SignIn />} />
-
       <Route path="/about" exact element={<About />} />
-
-      {/* <Route
-        path="/join"
+      <Route
+        path="/groups"
         exact
         element={
           <Protected>
-            <GroupJoin />
+            <Groups />
           </Protected>
         }
-      /> */}
-
+      />
+      <Route path="groups/:groupId" element={<Group />} />
+      <Route path="groups/new" element={<NewGroup />} />
       <Route
         path="/add"
         exact
@@ -35,7 +36,6 @@ const AppRouter = () => {
           </Protected>
         }
       />
-
       <Route
         path="/search"
         exact
@@ -45,10 +45,7 @@ const AppRouter = () => {
           </Protected>
         }
       />
-
-      {/* <Route path="*">
-              <Redirect to="/" />
-            </Route> */}
+      <Route path="*" element={<Error />} />
     </Routes>
   );
 };
