@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Button from "../UI/Button";
 import { Table, Card } from "react-bootstrap";
 import classes from "./SearchOutput.module.css";
+import LikeButton from "./LikeButton";
 
 //AIzaSyAonBgL_dJteImasf4i_-7Hb5aU2Rd8x5E
 
@@ -16,14 +17,11 @@ const SearchOutput = () => {
     const songsData = await response.json();
     const loadedSongs = [];
     for (const key in songsData) {
-      loadedSongs.push(songsData[key]);
+      const songData = { ...songsData[key], key: key };
+      loadedSongs.push(songData);
     }
     setSongsList(loadedSongs);
   }, []);
-
-  useEffect(() => {
-    fetchSongsHandler();
-  }, [fetchSongsHandler]);
 
   const reverseHandler = () => {
     let reverseList = [];
@@ -33,6 +31,10 @@ const SearchOutput = () => {
     }
     setSongsList(reverseList);
   };
+
+  useEffect(() => {
+    fetchSongsHandler();
+  }, [fetchSongsHandler]);
 
   return (
     <>
@@ -53,7 +55,7 @@ const SearchOutput = () => {
         </thead>
         <tbody>
           {songsList.map((data, index) => (
-            <tr key={data.youtubeLink}>
+            <tr key={`${data.youtubeLink}+${index}`}>
               <td style={{ color: "white" }}>{index + 1}</td>
               <td style={{ color: "#17e9e0" }}>{data.songName}</td>
               <td style={{ color: "#f8d60e" }}>{data.artistName}</td>
@@ -61,6 +63,8 @@ const SearchOutput = () => {
                 <a
                   style={{ color: "#17e9e0", textTransform: "lowercase" }}
                   href={data.youtubeLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   {data.youtubeLink}
                 </a>
@@ -68,13 +72,16 @@ const SearchOutput = () => {
               <td style={{ color: "#f8d60e" }}>{data.name}</td>
               <td style={{ color: "#faaf92" }}>{data.tag1}</td>
               <td style={{ color: "white" }}>{data.tag2}</td>
+              <td style={{ color: "white" }}>
+                <LikeButton songData={data} />
+              </td>
             </tr>
           ))}
         </tbody>
       </Table>
       <div className={classes.hide}>
-        {songsList.map((data) => (
-          <Card className={classes.cards}>
+        {songsList.map((data, index) => (
+          <Card className={classes.cards} key={`${data.youtubeLink}+${index}`}>
             <Card.Body>
               <Card.Title className={classes.cardTitle}>
                 {data.songName}
@@ -84,9 +91,15 @@ const SearchOutput = () => {
               </Card.Subtitle>
               <Card.Text>{data.tag1}</Card.Text>
               <Card.Text>{data.tag2}</Card.Text>
-              <Card.Link href={data.youtubeLink}>Play on Youtube</Card.Link>
+              <Card.Link
+                href={data.youtubeLink}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Play on Youtube
+              </Card.Link>
             </Card.Body>
-            <footer className="blockquote-footer">{data.name}</footer>
+            {/* <Footer className="blockquote-footer">{data.name}</Footer> */}
           </Card>
         ))}
       </div>

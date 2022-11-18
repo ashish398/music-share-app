@@ -1,13 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SongsForm from "../components/NewSong/SongsForm";
 import { logScreen } from "../firebaseLogger";
-import React, { useState } from "react";
-import SongsForm from "../components/NewSong/SongsForm";
 import ResponseToast from "../components/UI/ResponseToast";
 
+const SUCCESSTEXT = "Cheers, your song has been shared";
+const FAILURETEXT = "Oops! unable to share the song";
+
 const AddSong = () => {
-  const SUCCESSTEXT = "Cheers, your song has been shared";
-  const FAILURETEXT = "Oops! unable to share the song";
   const [showToast, setShowToast] = useState(true);
   const [toastText, setToastText] = useState("");
 
@@ -30,9 +29,11 @@ const AddSong = () => {
       setShowToast(true);
     }
   };
+
   useEffect(() => {
     logScreen("add_song");
   });
+
   return (
     <div>
       <SongsForm addSong={addSongHandler} />

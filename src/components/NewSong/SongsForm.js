@@ -89,6 +89,8 @@ const SongsForm = (props) => {
       name: inputName,
       tag1: inputTag1,
       tag2: inputTag2,
+      likes: 0,
+      likedByUsers: [],
     };
     if (!formIsValid) {
       console.log("invalid form inputs");

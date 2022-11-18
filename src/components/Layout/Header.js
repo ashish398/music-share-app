@@ -1,18 +1,31 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import classes from "./Header.module.css";
-import { Navbar, Nav } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 import Pockets from "../../assets/images/Pockets_main_font.png";
 import HamBurgIcon from "../UI/HamBurgIcon";
+import { UserAuth } from "../../context/AuthContext";
+import HeaderLoggedIn from "../Header/HeaderLoggedIn";
+import HeaderLoggedOut from "../Header/HeaderLoggedOut";
 
 const Header = () => {
   const [expanded, setExpanded] = useState(false);
+  const { logOut, user } = UserAuth();
+
   const toggleHandler = () => {
     setExpanded(expanded ? false : true);
   };
 
   const onLinkClickHandler = () => {
     setExpanded(false);
+  };
+
+  const handleSignOut = async () => {
+    setExpanded(false);
+    try {
+      await logOut();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -25,38 +38,14 @@ const Header = () => {
           <HamBurgIcon />
         </Navbar.Toggle>
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav>
-            <Nav.Link
-              className={classes.searchSong}
-              activeStyle={{ textDecoration: "underline" }}
-              onClick={onLinkClickHandler}
-              as={NavLink}
-              to="/search"
-              exact
-            >
-              SEARCH SONG
-            </Nav.Link>
-            <Nav.Link
-              className={classes.addSong}
-              activeStyle={{ textDecoration: "underline" }}
-              onClick={onLinkClickHandler}
-              as={NavLink}
-              to="/add"
-              exact
-            >
-              ADD SONG
-            </Nav.Link>
-            <Nav.Link
-              className={classes.about}
-              activeStyle={{ textDecoration: "underline" }}
-              onClick={onLinkClickHandler}
-              as={NavLink}
-              to="/about"
-              exact
-            >
-              ABOUT
-            </Nav.Link>
-          </Nav>
+          {user?.displayName ? (
+            <HeaderLoggedIn
+              onLinkClickHandler={onLinkClickHandler}
+              handleSignOut={handleSignOut}
+            />
+          ) : (
+            <HeaderLoggedOut onLinkClickHandler={onLinkClickHandler} />
+          )}
         </Navbar.Collapse>
       </Navbar>
     </>

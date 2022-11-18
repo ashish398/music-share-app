@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { Jumbotron } from "react-bootstrap";
 import classes from "./About.module.css";
 import { logScreen } from "../firebaseLogger";
 
@@ -9,7 +8,7 @@ const About = () => {
   });
   return (
     <div>
-      <Jumbotron style={{ background: "#a64ac9" }} className={classes.about}>
+      <div style={{ background: "#a64ac9" }} className={classes.about}>
         <h2>About Pockets</h2>
         <h4>Pockets is a collaborative Songs Search website.</h4>
         <p>
@@ -37,7 +36,7 @@ const About = () => {
         <p>
           Made with <span>&#128156;</span> by Ashish Jain
         </p>
-      </Jumbotron>
+      </div>
     </div>
   );
 };
