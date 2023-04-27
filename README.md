@@ -1,6 +1,6 @@
 # Getting Started with Pockets
 
-## About Pockets🚗
+## About Pockets🎵
 Pockets is a collaborative Songs Search website
 
 ## Tech Stack
